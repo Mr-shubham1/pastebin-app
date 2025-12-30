@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 const Home = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [sharableLink, setSharableLink] = useState("");
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  type ErrorState = {
+  paste?: string;
+  expiry?: string;
+  maxViews?: string;
+  general?: string;
+  };
+  const [errors, setErrors] = useState<ErrorState>({});
   const [input, setInput] = useState({
     paste: "",
     expiryDate: "",
     maxViews: "",
   });
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e:React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setErrors({});
     setIsSaved(false);
     setInput({
@@ -21,7 +27,7 @@ const Home = () => {
     });
   };
 
-  const onSubmitHndler = async (e) => {
+  const onSubmitHndler = async (e:React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       setLoading(true);
@@ -39,7 +45,7 @@ const Home = () => {
         setIsSaved(true);
         setLoading(false);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.log("catch error in submit ", error);
       const message = error?.response?.data?.message || "Something went wrong";
       if (message?.includes("Paste")) {
