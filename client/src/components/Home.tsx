@@ -26,7 +26,7 @@ const Home = () => {
       e.preventDefault();
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8080/api/v1/paste",
+        "https://pastebin-backend-bh30.onrender.com/api/v1/paste",
         input
       );
       if (response.data.success) {
