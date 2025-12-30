@@ -41,7 +41,7 @@ const Home = () => {
 
         // console.log(response.data.newPaste);
         const pasteId = response.data.newPaste._id;
-        setSharableLink(`http://localhost:5173/paste/${pasteId}`);
+        setSharableLink(`${window.location.origin}/paste/${pasteId}`);
         setIsSaved(true);
         setLoading(false);
       }
