@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 const Read = () => {
   const { id } = useParams();
-  const [paste, setPaste] = useState(null);
+  type PasteType = {
+  paste: string;
+  };
+  const [paste, setPaste] = useState<PasteType | null>(null);
   const getPaste = async () => {
     try {
       const response = await axios.get(
@@ -12,7 +15,7 @@ const Read = () => {
       if (response.data.success) {
         setPaste(response.data.paste);
       }
-    } catch (error) {
+    } catch (error:any) {
       console.log(error);
     }
   };
