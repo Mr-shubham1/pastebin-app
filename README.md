@@ -36,11 +36,11 @@ Built as a full-stack project with a clean UI and mainly focused on the core fun
 
 
 # Project structure
-- pastebin-app
----client
----server
-   ---.env
----.gitignore
+pastebin-app/
+├── client/
+├── server/
+│   └── .env.example
+├── .gitignore
 
 
 # How to run locally
