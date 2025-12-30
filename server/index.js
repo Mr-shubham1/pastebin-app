@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://pastebin-app-alpha.vercel.app/"
+  "https://pastebin-app-alpha.vercel.app"
 ];
 app.use(cors({
   origin:allowedOrigins,
