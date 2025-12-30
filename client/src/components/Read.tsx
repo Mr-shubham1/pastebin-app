@@ -7,7 +7,7 @@ const Read = () => {
   const getPaste = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/v1/paste/${id}`
+        `https://pastebin-backend-bh30.onrender.com/api/v1/paste/${id}`
       );
       if (response.data.success) {
         setPaste(response.data.paste);
